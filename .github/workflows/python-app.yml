@@ -28,10 +28,15 @@ jobs:
         pipx install poetry
     - name: Get data
       run: |
-        poetry run python data/pipeline.py
+        cd data  
+        poetry run python pipeline.py
+        cd ..
     - name: Train Model
       run: |
-        poetry run python model/pipeline.py
+        cd model
+        poetry run python pipeline.py
+        cd ..
     - name: Run api
       run: |
-        poetry run python api/app.py
+        cd api  
+        poetry run python app.py
