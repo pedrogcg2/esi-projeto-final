@@ -29,14 +29,17 @@ jobs:
     - name: Get data
       run: |
         cd data  
+        poetry install
         poetry run python pipeline.py
         cd ..
     - name: Train Model
       run: |
         cd model
+        poetry install
         poetry run python pipeline.py
         cd ..
     - name: Run api
       run: |
         cd api  
+        poetry install
         poetry run python app.py
